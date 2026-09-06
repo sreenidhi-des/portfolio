@@ -6,7 +6,7 @@
 <title>ConverSight - Case Study</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Space+Mono:wght@400;700&family=Baloo+2:wght@700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   /* =====================================================================
      CONVERSIGHT CASE STUDY: UNIFIED DESIGN SYSTEM
@@ -1842,13 +1842,21 @@
   .dev-pill{ display:inline-block; padding:14px 26px; border:1.5px solid var(--accent); border-radius:var(--radius-pill); color:var(--accent); font-size:1.1rem; white-space:nowrap; }
   .dev-item p{ color:var(--ink-body); margin:0; font-size:1rem; }
 
-  /* ---------- site header (matches portfolio landing page nav) ---------- */
-  .site-header{ position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(11,46,34,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-invert); display:flex; align-items:center; justify-content:space-between; padding:14px clamp(20px,5vw,80px); }
-  .site-header .brand{ display:flex; align-items:center; gap:8px; color:#fff; font-weight:800; font-size:16px; text-decoration:none; letter-spacing:.02em; }
-  .site-header nav{ display:flex; gap:clamp(20px,3vw,40px); }
-  .site-header nav a{ color:var(--ink-invert-soft); text-decoration:none; font-size:15px; font-weight:600; transition:color .2s ease; }
-  .site-header nav a:hover{ color:var(--hero-mint-strong); }
-  body{ padding-top:66px; }
+  /* ---------- site header + footer (shared across site, matches landing page) ---------- */
+  :root{ --black:#0a0a0a; --gold-soft:#F8C337; --font-display-nav:'Baloo 2', system-ui, sans-serif; --font-body-nav:'Manrope', system-ui, sans-serif; --container-nav:1280px; }
+  .nav{ position:sticky; top:0; z-index:200; background:var(--black); border-bottom:none; }
+  .nav-inner{ max-width:var(--container-nav); margin:0 auto; padding:11px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .logo{ display:flex; align-items:center; gap:4px; text-decoration:none; }
+  .logo-text{ font-family:var(--font-display-nav); font-weight:700; font-size:16px; color:#f5f5f5; transform:translate(-8px,-11px); }
+  .nav-links{ display:flex; gap:48px; font-size:16px; color:#c9c9cd; font-family:var(--font-body-nav); }
+  .nav-links a{ color:#c9c9cd; text-decoration:none; transition:color .2s ease; }
+  .nav-links a:hover{ color:#fff; }
+  .linkedin-pill{ width:60px; height:38px; border-radius:999px; border:1px solid #3a3a3a; display:flex; align-items:center; justify-content:center; color:#c9c9cd; background:transparent; text-decoration:none; transition:transform .2s ease, color .2s ease, border-color .2s ease; }
+  .linkedin-pill:hover{ color:var(--gold-soft); border-color:var(--gold-soft); transform:translateY(-2px); }
+  .footer{ border-top:1px solid #1e1e1e; padding:28px 32px; background:var(--black); }
+  .footer-inner{ max-width:var(--container-nav); margin:0 auto; display:flex; justify-content:space-between; font-size:.9rem; color:#6a6a70; font-family:var(--font-body-nav); }
+  .footer-inner a{ color:#6a6a70; text-decoration:none; }
+  .footer-inner a:hover{ color:var(--gold-soft); }
 
   /* ---------- back to top ---------- */
   .back-to-top{ position:fixed; bottom:28px; right:28px; z-index:200; width:46px; height:46px; border-radius:50%; background:var(--surface-forest); color:#fff; border:1px solid var(--line-invert); display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .2s ease; box-shadow:0 12px 30px rgba(0,0,0,.3); }
@@ -1857,13 +1865,27 @@
 </style>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="../../LandingPage/index.html">SJ</a>
-  <nav aria-label="Primary">
-    <a href="../../LandingPage/index.html#works">Projects</a>
-    <a href="../../AboutMe/index.html">About me</a>
-    <a href="../../Sreenidhi_Resume_Product_Strategist_Designer.pdf" target="_blank" rel="noopener">Resume</a>
-  </nav>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../../LandingPage/index.html#top" class="logo" aria-label="Sreenidhi J — home">
+      <svg class="logo-mark" width="52" height="46" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="24" cy="22" rx="23" ry="9" transform="rotate(-12 24 22)" stroke="#f5f5f5" stroke-width="1.4" fill="none"/>
+        <circle cx="22" cy="24" r="12" fill="#f5f5f5"/>
+        <circle cx="18" cy="24" r="4.4" fill="none" stroke="#151208" stroke-width="1.3"/>
+        <circle cx="27" cy="24" r="4.4" fill="none" stroke="#151208" stroke-width="1.3"/>
+        <line x1="22.4" y1="24" x2="22.6" y2="24" stroke="#151208" stroke-width="1.3"/>
+      </svg>
+      <span class="logo-text">SJ</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../../LandingPage/index.html#works">Projects</a>
+      <a href="../../AboutMe/index.html">About me</a>
+      <a href="../../Sreenidhi_Resume_Product_Strategist_Designer.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+    <a class="linkedin-pill" href="https://www.linkedin.com/in/sreenidhi-jai/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
 </header>
 <a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 15l6-6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -3035,5 +3057,14 @@
   onScroll();
 })();
 </script>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© <span id="year"></span> Sreenidhi J</span>
+    <a href="https://www.linkedin.com/in/sreenidhi-jai/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>
